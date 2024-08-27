@@ -41,6 +41,13 @@ WORKDIR /home/
 
 
 # # Binref installation
-# RUN mkdir ~/tools && mkdir ~/tools/binref
-# RUN python3 -m venv ~/tools/binref/
-# # RUN /bin/bash -c "source ~/tools/binref/ && pip install -U pip setuptools && pip install -U binary-refinery[all] && deactivate"
+RUN mkdir ~/tools && mkdir ~/tools/binref
+RUN python3 -m venv ~/tools/binref/
+RUN . ~/tools/binref/bin/activate && pip install -U pip setuptools && pip install -U binary-refinery[all]
+
+# Oletools installation
+
+RUN mkdir ~/tools/oletools
+RUN python3 -m venv ~/tools/oletools
+RUN . ~/tools/oletools/bin/activate && pip install -U pip setuptools && pip install -U oletools[full]
+
